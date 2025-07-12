@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ColecaoController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\PedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +46,23 @@ Route::put('/produto/update/{id}',   [ProdutoController::class, 'update'])->name
 Route::delete('/produto/{id}',       [ProdutoController::class, 'destroy'])->name('produto.destroy');
 Route::post('/produto/search',       [ProdutoController::class, 'search'])->name('produto.search');
 
-Route::get('/cliente/pdf', [ClienteController::class, 'gerarPdf'])->name('cliente.pdf');
+Route::get('/fornecedor',             [FornecedorController::class, 'index'])->name('fornecedor.index');
+Route::get('/fornecedor/create',      [FornecedorController::class, 'create'])->name('fornecedor.create');
+Route::post('/fornecedor/store',      [FornecedorController::class, 'store'])->name('fornecedor.store');
+Route::get('/fornecedor/edit/{id}',   [FornecedorController::class, 'edit'])->name('fornecedor.edit');
+Route::put('/fornecedor/update/{id}', [FornecedorController::class, 'update'])->name('fornecedor.update');
+Route::delete('/fornecedor/{id}',     [FornecedorController::class, 'destroy'])->name('fornecedor.destroy');
+Route::post('/fornecedor/search',     [FornecedorController::class, 'search'])->name('fornecedor.search');
+
+Route::get('/pedido',             [PedidoController::class, 'index'])->name('pedido.index');
+Route::get('/pedido/create',      [PedidoController::class, 'create'])->name('pedido.create');
+Route::post('/pedido/store',      [PedidoController::class, 'store'])->name('pedido.store');
+Route::get('/pedido/edit/{id}',   [PedidoController::class, 'edit'])->name('pedido.edit');
+Route::put('/pedido/update/{id}', [PedidoController::class, 'update'])->name('pedido.update');
+Route::delete('/pedido/{id}',     [PedidoController::class, 'destroy'])->name('pedido.destroy');
+Route::post('/pedido/search',     [PedidoController::class, 'search'])->name('pedido.search');
+
+
+Route::get('cliente/pdf', [ClienteController::class, 'report'])->name('cliente.pdf');
+Route::get('pedido/pdf', [PedidoController::class, 'report'])->name('pedido.pdf');
+

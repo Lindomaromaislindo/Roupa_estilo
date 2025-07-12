@@ -23,7 +23,9 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('cliente.index') }}">Clientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('produto.index') }}">Produto</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('colecao.index') }}">Colecão</a></li>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('fornecedor.index') }}">Fornecedor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('pedido.index') }}">Pedido</a></li>
+                </li>
                 </ul>
             </div>
         </div>

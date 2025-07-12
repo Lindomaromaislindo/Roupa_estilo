@@ -17,7 +17,8 @@
         @csrf
 
         @if (!empty($dado->id))
-            @method('put')
+            @method('PUT')
+            <input type="hidden" name="id" value="{{ $dado->id }}">
         @endif
 
         <div class="col-md-6">
@@ -59,7 +60,7 @@
 
         <div class="col-12 mt-4">
             <button type="submit" class="btn btn-success me-2">Salvar</button>
-            <a href="{{ url('cliente') }}" class="btn btn-outline-success">Voltar</a>
+            <a href="{{ route('colecao.index') }}" class="btn btn-outline-success">Voltar</a>
         </div>
     </form>
 </div>

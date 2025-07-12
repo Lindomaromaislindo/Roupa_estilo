@@ -36,7 +36,7 @@ class ColecaoController extends Controller
     {
         $colecao = Colecao::findOrFail($id);
 
-        return view('colecao.form', ['colecao' => $colecao]);
+        return view('colecao.form', ['dado' => $colecao]); // Corrigido para 'dado'
     }
 
     public function update(Request $request, string $id)
@@ -47,7 +47,8 @@ class ColecaoController extends Controller
             'data_lancamento' => 'required|date',
         ]);
 
-        Colecao::updateOrCreate(['id' => $id], $request->all());
+        $colecao = Colecao::findOrFail($id);
+        $colecao->update($request->all());
 
         return redirect()->route('colecao.index');
     }
